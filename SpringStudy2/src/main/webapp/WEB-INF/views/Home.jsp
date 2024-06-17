@@ -7,6 +7,9 @@
 <title>Home</title>
 </head>
 <body>
-	<h1>홈입니다.</h1>
+	<form action="./page2" method="post">
+	<h1>홈입니다.</h1 >
+	<button type="submit">구구단 보러갈래? </button>
+	</form>
 </body>
 </html>

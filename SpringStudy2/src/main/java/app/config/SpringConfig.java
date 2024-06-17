@@ -24,7 +24,7 @@ public class SpringConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resource/**").addResourceLocations("/resource/"); //web.xml의 화면단 파일과 URL매핑
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/"); //web.xml의 화면단 파일과 URL매핑
 	}
 
 	
