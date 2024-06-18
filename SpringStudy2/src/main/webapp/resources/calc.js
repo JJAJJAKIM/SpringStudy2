@@ -12,6 +12,7 @@ $(document).ready(() => {
 		},
 		mark : (input) => {
 			$("#mark").val(input);
+			$("#num2").val(EVENT0.repository.getData());
 			EVENT0.history("입력받은 연산 기호 : " + input);
 		},
 		reset : () => {
@@ -21,6 +22,8 @@ $(document).ready(() => {
 		},
 		run : () => {
 			$("form").submit();
+			EVENT0.repository.setData($("#value").val());	
+			
 		},
 		history: (value, type) => {
 			if(type) {
@@ -37,7 +40,7 @@ $(document).ready(() => {
 			if($("#history li").length > 10)
 			$("#history li").eq(9).remove();
 			var html = `<li class="list-group-item">${value}</li>`;
-			$("#history").prepend(html);
+			$("#history").append(html);
 		}
 	};
 	const EVENT1 = (e) => {

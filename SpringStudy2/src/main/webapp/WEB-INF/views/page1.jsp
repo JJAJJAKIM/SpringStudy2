@@ -15,7 +15,8 @@
 		<form action="" method="get">
 			<div class="input-group mb-3">
 				<input type="hidden" id="mark" name="mark">
-				<input type="number" class="text-start fs-2 form-control" id="value" name="value" placeholder="0" readonly="readonly">
+				<input type="hidden" id="num2" name="num2" placeholder="0">
+				<input type="number" class="text-start fs-2 form-control" id="value" name="value" placeholder="0" value='${result}' readonly="readonly">
 				<button class="btn btn-success" type="button" id="del">
 					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
 					<path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
