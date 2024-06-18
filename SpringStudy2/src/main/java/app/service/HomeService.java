@@ -63,18 +63,17 @@ public class HomeService {
 		model.addAttribute("list", list);
 	}
 	
-	private void data(Model model, int dan_sta, int dan_end) {
-		List list = new ArrayList<>(); 
-		for(int i = dan_sta; i < dan_end; i++) {
-			List list2 = new ArrayList<>();
-			for(int j= 1; j < 10; j++) {
-				String str = i +" * "+ j + " = "+ (i*j);
-				list2.add(str);
-			}
-			list.add(list2);
-		}
-		model.addAttribute("dan", dan_sta);
-		model.addAttribute("list", list);
-	}
+//	private void data(Model model, int dan_sta, int dan_end) {
+//		List list = new ArrayList<>(); 
+//		for(int i = dan_sta; i < dan_end; i++) {
+//			List list2 = new ArrayList<>();
+//			for(int j= 1; j < 10; j++) {
+//				String str = i +" * "+ j + " = "+ (i*j);
+//				list2.add(str);
+//			}
+//			list.add(list2);
+//		}
+//
+//	}
 	
 }
