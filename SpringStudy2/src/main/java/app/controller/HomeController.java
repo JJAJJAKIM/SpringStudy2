@@ -56,7 +56,7 @@ public class HomeController {
 	
 	@PostMapping("/page2")
 	public String page2(Model model, HttpServletRequest req) { // Model은 화면에 데이터를 출력하기전 데이터를 담을 그릇. 데이터를 model에 담아놓기만 하면
-		hs.page2(model, pUtil.param(req));								   // Spring에서 화면단으로 보내주기 때문에 어디서 데이터를 담던 상관없이 UI로 보내준다.
+		hs.page2(model, pUtil.param(req));					// Spring에서 화면단으로 보내주기 때문에 어디서 데이터를 담던 상관없이 UI로 보내준다.
 		return "page2";
 	}
 	
