@@ -68,4 +68,5 @@ public class HomeService {
 		model.addAttribute("dan", dan_sta);
 		model.addAttribute("list", list);
 	}
+	
 }

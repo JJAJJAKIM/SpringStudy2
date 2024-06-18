@@ -1,6 +1,9 @@
 package app.controller;
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import app.service.HomeService;
 import app.util.ParameterUtil;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class HomeController {
@@ -59,5 +64,15 @@ public class HomeController {
 		hs.page2(model, pUtil.param(req));					// Spring에서 화면단으로 보내주기 때문에 어디서 데이터를 담던 상관없이 UI로 보내준다.
 		return "page2";
 	}
+	@Autowired
+	private SqlSession session;
+	
+	@GetMapping("/test")
+	public String test() {
+		int no = session.selectOne("sql.test");
+		System.out.println("no : "+ no);
+		return "";
+	}
+	
 	
 }
