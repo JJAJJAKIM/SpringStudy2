@@ -23,57 +23,49 @@ public class HomeService {
 	public void page2(Model model, ParamDTO pdto ) {
 		
 //		ParamDTO pdto = pUtil.param(req);
+		int b = 1;
+		int a = 0;
+		
 		if(pdto.isState()) {
 		
 			Map map = pdto.getResult();
 			String dan = map.get("dan").toString();
-			int b = 1;
-			int a = 0;
 			
 			if("A".equals(dan)) {
-				b = 1;
 				a = 10;
-			} else if ("1".equals(dan)){
-				b = 1;
-				a = 2;
-			} else if ("2".equals(dan)){
-				b = 2;
-				a = 3;
-			} else if ("3".equals(dan)){
-				b = 3;
-				a = 4;
-			} else if ("4".equals(dan)){
-				b = 4;
-				a = 5;
-			} else if ("5".equals(dan)){
-				b = 5;
-				a = 6;
-			} else if ("6".equals(dan)){
-				b = 6;
-				a = 7;
-			} else if ("7".equals(dan)){
-				b = 7;
-				a = 8;
-			} else if ("8".equals(dan)){
-				b = 8;
-				a = 9;
-			} else if ("9".equals(dan)){
-				b = 9;
-				a = 10;
-			}        
-			
-			List list = new ArrayList<>(); 
-			for(int i = b; i < a; i++) {
-				List list2 = new ArrayList<>();
-				for(int j= 1; j < 10; j++) {
-					String str = i +" * "+ j + " = "+ (i*j);
-					list2.add(str);
-				}
-				list.add(list2);
 			}
-			model.addAttribute("dan", b);
-			model.addAttribute("list", list);
+			
+			switch (dan) {
+			case "1": 
+			case "2":
+			case "3":
+			case "4":
+			case "5":
+			case "6":
+			case "7":
+			case "8":
+			case "9":
+				b = Integer.parseInt(dan);
+				a = b+1;
+				break;
+			}
+	
+			data(model, b, a);
+		} else {
+			data(model, b, 10);
 		}
 	}
-
+	private void data(Model model, int b, int a) {
+		List list = new ArrayList<>(); 
+		for(int i = b; i < a; i++) {
+			List list2 = new ArrayList<>();
+			for(int j= 1; j < 10; j++) {
+				String str = i +" * "+ j + " = "+ (i*j);
+				list2.add(str);
+			}
+			list.add(list2);
+		}
+		model.addAttribute("dan", b);
+		model.addAttribute("list", list);
+	}
 }
