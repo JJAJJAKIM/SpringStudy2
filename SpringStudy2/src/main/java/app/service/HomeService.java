@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import app.dao.HomeDao;
 import app.dto.ParamDTO;
 import app.util.ParameterUtil;
 
@@ -20,11 +21,14 @@ public class HomeService {
 	@Autowired
 	private ParameterUtil pUtil;
 	
+	@Autowired
+	private HomeDao hDao;
+	
 	public void page2(Model model, ParamDTO pdto ) {
 //		ParamDTO pdto = pUtil.param(req);
 		int dan_sta = 1;
 		int dan_end = 0;
-		
+		List list = null;
 		if(pdto.isState()) {
 		
 			Map map = pdto.getResult();
@@ -32,6 +36,7 @@ public class HomeService {
 			
 			if("A".equals(dan)) {
 				dan_end = 10;
+				list = hDao.gugudanAll();
 			}
 			
 			switch (dan) {
@@ -46,13 +51,16 @@ public class HomeService {
 			case "9":
 				dan_sta = Integer.parseInt(dan);
 				dan_end = dan_sta+1;
+				list = hDao.gugudanOne(dan_end);
 				break;
 			}
-	
-			data(model, dan_sta, dan_end);
+//			data(model, dan_sta, dan_end);
 		} else {
-			data(model, dan_sta, 10);
+			list = hDao.gugudanAll();
+//			data(model, dan_sta, 10);
 		}
+		model.addAttribute("dan", dan_sta);
+		model.addAttribute("list", list);
 	}
 	
 	private void data(Model model, int dan_sta, int dan_end) {

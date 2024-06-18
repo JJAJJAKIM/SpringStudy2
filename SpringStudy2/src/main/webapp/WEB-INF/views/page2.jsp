@@ -1,3 +1,4 @@
+<%@page import="java.util.HashMap"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -44,30 +45,36 @@
 //	out.println(obj);
 	if(obj != null){											// 구구단 출력할 데이터 유무 확인
 		List list = (List)obj; 									// 구구단 출력할 데이터 리스트 형변환 처리
-		for(int i = 0; i < list.size(); i++ ){					// 구구단 첫번째 반복문 시작 > 단을 반복
-			int d = Integer.parseInt(dan.toString());			// 시작 단 데이터 정수값으로 형변환 처리
+		int d = Integer.parseInt(dan.toString());			// 시작 단 데이터 정수값으로 형변환 처리
+		for(int i = 0; i < list.size(); i= i+9 ){					// 구구단 첫번째 반복문 시작 > 단을 반복
 %>			
 			  <div class="container mt-3">
-			    <h2 class="text-white text-center"><%=d+i %>단</h2>
+			    <h2 class="text-white text-center"><%=d++%>단</h2>
 			    <div class="row text-center mt-3 fs-3">	
 <%	
-			Object obj2 = list.get(i);							//구구단 리스트 안에 있는 출력 데이터 리스트 가져오기
-			 if(obj2 != null){
-				List list2 = (List)obj2;
-				for(int j = 0; j <list2.size(); j++){
-					Object obj3 = list2.get(j);
+//			Object obj2 = list.get(i);							//구구단 리스트 안에 있는 출력 데이터 리스트 가져오기
+//			obj2 = null; 
+//			if(obj2 != null){
+//				List list2 = (List)obj2;
+				for(int j = 0; j < 9 ; j++){
+//					Object obj3 = list2.get(j);
+					HashMap obj2 = (HashMap) list.get(i+j);			
+					Object a = obj2.get("dan");
+					Object b = obj2.get("su");
+					int sum = Integer.parseInt(a.toString()) * Integer.parseInt(b.toString()) ;
+					String str = a + " * " + b +" = " + sum;
 %>
 				<div class="col-sm-4">
-			        <p class="text-bg-light"><%=obj3 %></p>
+			        <p class="text-bg-light"><%=str %></p>
 			    </div>
 <%			      
 			 	}
-			}
+		}
 %>
 				</div>
 			</div>
 <%		
-		}	
+//		}	
 	}
 %>
 
