@@ -58,7 +58,7 @@
 //				List list2 = (List)obj2;
 				for(int j = 0; j < 9 ; j++){
 //					Object obj3 = list2.get(j);
-					HashMap obj2 = (HashMap) list.get(i+j);			
+					HashMap obj2 = (HashMap) list.get(i+j);	
 					Object a = obj2.get("dan");
 					Object b = obj2.get("su");
 					int sum = Integer.parseInt(a.toString()) * Integer.parseInt(b.toString()) ;
