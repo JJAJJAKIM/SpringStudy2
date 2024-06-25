@@ -19,7 +19,7 @@ public class SpringConfig implements WebMvcConfigurer {
 	public void configureViewResolvers(ViewResolverRegistry registry) {
 		
 		InternalResourceViewResolver ivs = new InternalResourceViewResolver();
-		ivs.setPrefix("/WEB-INF/v1/");
+		ivs.setPrefix("/WEB-INF/views/");
 		ivs.setSuffix(".jsp");
 		registry.viewResolver(ivs);
 	}
