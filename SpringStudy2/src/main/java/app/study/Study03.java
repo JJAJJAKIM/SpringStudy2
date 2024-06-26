@@ -16,6 +16,11 @@ public class Study03 {
 	
 	@GetMapping("/quest")
 	public String quest(Model model) {
+		model.addAttribute("var", "가");
+		model.addAttribute("a", "나");
+		model.addAttribute("array", new String[] {"가", "나", "다", "라"});
+		model.addAttribute("s", 1);
+		model.addAttribute("e", 9);
 		return "study/s3/quest";
 	}
 	

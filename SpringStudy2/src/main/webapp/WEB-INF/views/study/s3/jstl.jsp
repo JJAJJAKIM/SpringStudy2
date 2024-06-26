@@ -8,7 +8,7 @@
 </head>
 <body>
 <!-- 변수 선언 및 할당 -->
-<c:set scope="request" var="a" value="가" />
+<c:set scope="request" var="a" value="라" />
 <p>${a}</p>
 
 <hr>
@@ -33,7 +33,7 @@
 <hr>
 <!-- 반복문 -->
 <ul>
-<c:forEach var="row" begin="0" end="10" step="1" varStatus="s">
+<c:forEach var="row" begin="" end="10" step="1" varStatus="s">
 	<li>${s.index} <span style="color: blue;">${s.count}</span> ${row}</li>
 </c:forEach>
 </ul>

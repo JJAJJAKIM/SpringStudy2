@@ -19,8 +19,8 @@ public class HomeController {
 
 	@GetMapping("/")
 	public String home(Model model) {
-		model.addAttribute("name", "홍길동");
-		return "Home";
+		model.addAttribute("title","title");
+		return "home";
 	}
 	
 	@GetMapping("/page1")

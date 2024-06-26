@@ -4,8 +4,6 @@ import javax.servlet.Filter;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import app.config.UTF8Filter;
-
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
