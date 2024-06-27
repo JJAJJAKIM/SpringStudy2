@@ -18,8 +18,10 @@ public class Study06 {
 	private Study06Service service;
 
 	// Service에서 연산 호출하여 결과값 받아 오기
-	@GetMapping("/{value:[0-9]}")
-	public void url(@PathVariable int value) {
-		System.out.println(service.run(value));
+	@GetMapping("/{type}/{a}/{b}/{c}")
+	public void url(@PathVariable int type, @PathVariable int a, @PathVariable int b, @PathVariable int c) {
+		int value = service.run(type, a, b);
+		log.info("run() : {} {}", value, (c == value) );
+		
 	}	
 }
