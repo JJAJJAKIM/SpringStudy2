@@ -1,6 +1,8 @@
 package app.study;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -27,14 +29,33 @@ public class Study05 {
 	 * ? 			: 반복의 개념은 아니지만 0, 1 같은 둘 다 허용 매치 
 	 **********************************************************/
 
-	public void url1() {}
+	@GetMapping("/v/{value:[a-zA-Z]*}")
+	public void url1(@PathVariable String value) {
+		System.out.println("value : " + value);
+	}
 	
-	public void url2() {}
+	@GetMapping("/v/{value:[0-9]+}")
+	public void url2(@PathVariable String value) {
+		System.out.println("value2 : " + value);
+	}
 	
-	public void url3() {}
+	@GetMapping("/{value:[a-zA-Z]{4}[0-9]}")
+	public String url3(@PathVariable String value) {
+		System.out.println("value3 : " + value);
+		return "study/s4/"+value;
+	}
 	
-	public void url4() {}
+	@GetMapping("/{value:[qQ][uU][eE][sS][tT]}")
+	public String url4(@PathVariable  String value) {
+		
+		return "study/s4/" + value.toLowerCase();
+	}
 	
-	public void url5() {}
+	//주민번호를 넣어서 정상이면 출력하세요.
+	// 년도(2) 월(2) 일(2) 성별[1-4] 구분(6)
+	@GetMapping("/{value:[0-9]{2}[0-1][0-9][0-3][0-9][1-4][0-9]{6}}")
+	public void url5(@PathVariable String value) {
+		System.out.println(value);
+	}
 	
 }

@@ -26,7 +26,16 @@ public class Study04 {
 	// 경로 변수에 따라 데이터 화면에 전달하기
 	@GetMapping("/data/{name}/{age}/{gender}")
 	public String url2(@PathVariable Map<String, String> map, Model model) {		
+		System.out.println(map.getClass());
+		System.out.println(map.getClass().getName());
 		model.addAttribute(map);
+		Map map2 = new HashMap<>();
+		map2.put("key", "자자김1");
+		Map map3 = new HashMap<>();
+		map3.put("name", "자자김2");
+		model.addAttribute(map2);
+		model.addAttribute(map3);
+	
 		
 		return "study/s4/quest";
 	}

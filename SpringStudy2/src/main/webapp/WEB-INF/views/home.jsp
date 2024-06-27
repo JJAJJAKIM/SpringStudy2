@@ -30,6 +30,14 @@ a {text-decoration: none; color: #000; font-size: 1.5rem;}
 		<li>
 			<a href="/s4">경로 변수 이용하여 페이지 출력하기</a>
 		</li>
+		<li>
+			<a href="/s4/data/짜짜/3/고자">경로 변수 이용하여 페이지 출력하기</a>
+		</li>
+		<li>
+			<a href="/s5">경로 변수에 조건를 넣어서 데이터 가져오기</a>
+		</li>
+		<li>
+			<a href="/s6">스프링 Service 기능 나누기</a>
 	</ol>
 </div>
 </body>
