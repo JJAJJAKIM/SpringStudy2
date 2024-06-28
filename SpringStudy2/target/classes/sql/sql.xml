@@ -16,4 +16,17 @@
   	select * from gugudan where dan = #{dan}
   </select>
   
+  <select id="findAll" resultType="HashMap">
+  	select * from temp1
+  </select>
+    <select id="findAccept" parameterType="Object" resultType="HashMap">
+  	select * from temp1
+  		<if test="accept == 1">
+  	 		where accept = 1
+  		</if>
+  		<if test="accept == 0">
+  	 		where accept = 0
+  		</if>
+  </select>
+  
 </mapper>
