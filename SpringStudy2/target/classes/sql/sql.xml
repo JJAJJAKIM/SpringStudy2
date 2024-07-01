@@ -19,7 +19,7 @@
   <select id="findAll" resultType="HashMap">
   	select * from temp1
   </select>
-    <select id="findAccept" parameterType="Object" resultType="HashMap">
+  <select id="findAccept" parameterType="Object" resultType="HashMap">
   	select * from temp1
   		<if test="accept == 1">
   	 		where accept = 1
@@ -28,5 +28,23 @@
   	 		where accept = 0
   		</if>
   </select>
+  <select id="findOne" parameterType="Integer" resultType="HashMap">
+  	select * from temp1
+  	where no = #{no}
+  </select>
+  <update id="edit" parameterType="HashMap">
+  	update temp1 set title = #{title}, content = #{content} where no = #{no}
+  </update>
+    <update id="editAccept" parameterType="HashMap">
+  	update temp1 set accept = #{accept} where no = #{no}
+  </update>
+  <insert id="save" parameterType="HashMap" >
+  	insert into temp1 (`title`, `content`) value (#{title}, #{content})
+  	
+  	<selectKey keyProperty="no" resultType="int" order="AFTER">
+    		SELECT LAST_INSERT_ID() AS no
+	</selectKey>
+  
+  </insert>
   
 </mapper>
